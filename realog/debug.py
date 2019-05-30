@@ -146,7 +146,7 @@ def extreme_verbose(input, force=False):
 	if    debug_level >= 6 \
 	   or force == True:
 		debug_lock.acquire()
-		local_print(color_blue + input + color_default)
+		local_print(color_blue + "[X] " + input + color_default)
 		debug_lock.release()
 
 ##
@@ -160,7 +160,7 @@ def verbose(input, force=False):
 	if    debug_level >= 5 \
 	   or force == True:
 		debug_lock.acquire()
-		local_print(color_blue + input + color_default)
+		local_print(color_blue + "[V] " + input + color_default)
 		debug_lock.release()
 
 ##
@@ -174,7 +174,7 @@ def debug(input, force=False):
 	if    debug_level >= 4 \
 	   or force == True:
 		debug_lock.acquire()
-		local_print(color_green + input + color_default)
+		local_print(color_green + "[D] " + input + color_default)
 		debug_lock.release()
 
 ##
@@ -202,7 +202,7 @@ def warning(input, force=False):
 	if    debug_level >= 2 \
 	   or force == True:
 		debug_lock.acquire()
-		local_print(color_purple + "[WARNING] " + input + color_default)
+		local_print(color_purple + "[W] " + input + color_default)
 		debug_lock.release()
 
 ##
