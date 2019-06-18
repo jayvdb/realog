@@ -28,6 +28,7 @@ debug_lock = threading.Lock()
 
 debug_callback = None
 
+
 ##
 ## @brief Set the callback on an error detected on the system (permit to stop threading system
 ## @param[in] callback ()
@@ -36,7 +37,15 @@ def set_callback_error(callback):
 	global debug_callback
 	debug_callback = callback
 
+debug_last_log = None
 
+##
+## @brief Set a display when error occured ==> last display of the program...
+## @param[in] log Data to display
+##
+def set_display_on_error(log):
+	global debug_last_log
+	debug_last_log = log
 
 # in python2 we have many time error with the utf-8 char, then to prevent error in utf8 print we jest removint its.
 def local_print(value):
@@ -239,6 +248,8 @@ def error(input, thread_id=-1, force=False, crash=True):
 			debug_callback()
 		if thread_id != -1:
 			threading.interrupt_main()
+		if debug_last_log != None:
+			local_print(color_red + debug_last_log + color_default)
 		exit(-1)
 		#os_exit(-1)
 		#raise "error happend"
