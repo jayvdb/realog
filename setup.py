@@ -16,7 +16,7 @@ def readme():
 
 # https://pypi.python.org/pypi?%3Aaction=list_classifiers
 setup(name='realog',
-      version='1.0.0',
+      version='1.1.0',
       description='atria debug is a simple tool to log the data in color, with a level management',
       long_description=readme(),
       url='http://github.com/HeeroYui/realog',
